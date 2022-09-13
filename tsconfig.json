@@ -10,8 +10,9 @@
     "resolveJsonModule": true,
     "moduleResolution": "node",
     "lib": ["es2015", "dom", "es6"],
-    "rootDir": "src"
+    "rootDir": "src",
+    "declaration": true,
   },
-  "include": ["src"],
+  "include": ["src", "types"],
   "exclude": ["node_modules", "dist"]
 }
