@@ -9,7 +9,8 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@travel3/travel3-api": "file:../"
+    "@travel3/travel3-api": "file:../",
+    "dotenv": "^16.0.2"
   },
   "author": "",
   "license": "ISC"

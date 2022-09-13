@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AxiosResponse, Method } from 'axios';
 
 import { ApiResource } from './ApiResource';

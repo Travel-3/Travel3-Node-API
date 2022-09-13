@@ -1,12 +1,12 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Context } from './Context';
 
-import { API_BASE_URL, API_VERSION } from './version';
+import { API_VERSION } from './version';
 
 const DEFAULT_HEADERS = {};
 
 export class ApiClient {
-    public basePath = API_BASE_URL;
+    // public basePath = API_BASE_URL;
     public version: string = API_VERSION;
     instance: AxiosInstance;
 
@@ -15,7 +15,7 @@ export class ApiClient {
     }
 
     public buildApiEndpoint = (): string => {
-        return `${this.basePath}/api`;
+        return `${Context.API_BASE_URL}`;
     };
 
     private createAxiosInstance = () => {
@@ -35,7 +35,7 @@ export class ApiClient {
                 // if (error.response.status === 401) {
                 //     // logout()
                 // }
-                Context.errorCallback(error.response);
+                Context.errorCallback && Context.errorCallback(error.response);
                 return Promise.reject(error.response);
             }
         );

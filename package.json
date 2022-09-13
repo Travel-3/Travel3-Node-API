@@ -1,6 +1,6 @@
 {
   "name": "@travel3/travel3-api",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -13,7 +13,9 @@
     "lint": "eslint '**/*.{ts,tsx}' --max-warnings 0",
     "clean": "rimraf ./dist tsconfig.tsbuildinfo",
     "format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "run-example": "node ./examples/index.js"
+    "run-example": "node ./examples/index.js",
+    "deploy": "npm publish --access public",
+    "deploy:beta": "npm run deploy --tag beta"
   },
   "repository": {
     "type": "git",

@@ -1,7 +1,7 @@
 import { ApiResource } from '../ApiResource';
 
 export const Auth = ApiResource.extend({
-    path: '',
+    path: '/api',
     lookup: ApiResource.method({
         method: 'POST',
         path: '/lookup.json'
