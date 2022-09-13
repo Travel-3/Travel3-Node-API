@@ -5,6 +5,8 @@
   - [Getting Started](#getting-started)
     - [Authentication](#authentication)
       - [Login](#login)
+    - [Event Type](#event-type)
+      - [List Event Types](#list-event-types)
     - [Admin](#admin)
       - [Event](#event)
         - [Get All Events](#get-all-events)
@@ -49,6 +51,16 @@ await Travel3.Auth.login({
 });
 ```
 
+### Event Type
+
+#### List Event Types
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const eventTypes = await Travel3.EventType.list();
+```
+
 ### Admin
 
 #### Event
@@ -72,6 +84,8 @@ const event = await Travel3.Admin.Event.show({
 ```
 
 ##### Create Event
+
+You have to retrieve event type id by using `Travel3.EventType.list()` before you create an event.
 
 ```javascript
 import Travel3 from '@travel3/travel3-api';
