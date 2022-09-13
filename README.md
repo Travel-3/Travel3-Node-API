@@ -1,23 +1,15 @@
 # Travel3-Node-API
 
--   [Installation](#installation)
--   [Getting Started](#getting-started)
-    -   [Authentication](#authentication)
-        -   [Login](#login)
-              <!-- - [Register](#register) -->
-              <!-- - [Logout](#logout) -->
-            <!-- - [Users](#users)
-        -   [Get All Users](#get-all-users)
-        -   [Get User By Id](#get-user-by-id)
-        -   [Update User](#update-user)
-        -   [Delete User](#delete-user) -->
-    -   [Admin](#admin)
-        -   [Events](#events)
-            -   [Get All Events](#get-all-events)
-            -   [Get Event By Id](#get-event-by-id)
-            -   [Create Event](#create-event)
-            -   [Update Event](#update-event)
-            -   [Delete Event](#delete-event)
+- [Travel3-Node-API](#travel3-node-api)
+  - [Installation](#installation)
+  - [Getting Started](#getting-started)
+    - [Authentication](#authentication)
+      - [Login](#login)
+    - [Admin](#admin)
+      - [Event](#event)
+        - [Get All Events](#get-all-events)
+        - [Get Event By Id](#get-event-by-id)
+        - [Create Event](#create-event)
 
 ## Installation
 
