@@ -22,11 +22,19 @@ Travel3.Context.initialize({
         identifier_type: 'email'
     });
 
-    const { access_token, token_type, expires_in, refresh_token } = result;
+    const { access_token } = result;
 
-    const events = await Travel3.Admin.Event.list({
-        access_token: access_token
+    // const events = await Travel3.Admin.Event.list({
+    //     access_token: access_token
+    // });
+
+    // console.log(events);
+
+    const metadata = await Travel3.Image.getMedia({
+        filename: '123.png',
+        type: 'image/png',
+        access_token
     });
 
-    console.log(events);
+    await Travel3.directS3Upload(new File([], '123.png'), metadata.fields);
 })();

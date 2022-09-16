@@ -12,6 +12,7 @@
         - [Get All Events](#get-all-events)
         - [Get Event By Id](#get-event-by-id)
         - [Create Event](#create-event)
+    - [Direct Upload Image](#direct-upload-image)
 
 ## Installation
 
@@ -115,4 +116,22 @@ const event = await Travel3.Admin.Event.create({
         }
     ]
 });
+```
+
+### Direct Upload Image
+
+1. Get the image metadata from travel3 api
+
+```javascript
+const metadata = await Travel3.Image.getMedia({
+    filename: '123.png',
+    type: 'image/png',
+    access_token
+});
+```
+
+2. Upload the image to the url
+
+```javascript
+await Travel3.directS3Upload(file, metadata.fields);
 ```

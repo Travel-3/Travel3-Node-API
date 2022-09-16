@@ -8,8 +8,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
-    "prepare": "npm run clean && npm run build",
+    "build": "npm run clean && tsc",
+    "prepare": "npm run build",
     "lint": "eslint '**/*.{ts,tsx}' --max-warnings 0",
     "clean": "rimraf ./dist tsconfig.tsbuildinfo",
     "format": "prettier --config .prettierrc 'src/**/*.ts' --write",
