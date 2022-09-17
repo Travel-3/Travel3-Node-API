@@ -10,8 +10,19 @@ export interface Params {
     'x-amz-signature': string;
 }
 
-export const directS3Upload = (file: File, params: Params) =>
-    axios.post('https://s3.ap-northeast-1.amazonaws.com/travel3.storage', {
-        ...params,
-        file
-    });
+export const directS3Upload = (file: Blob, params: Params) => {
+    const formData = new FormData();
+    formData.append('key', params.key);
+    formData.append('Content-Type', params['Content-Type']);
+    formData.append('policy', params.policy);
+    formData.append('x-amz-credential', params['x-amz-credential']);
+    formData.append('x-amz-algorithm', params['x-amz-algorithm']);
+    formData.append('x-amz-date', params['x-amz-date']);
+    formData.append('x-amz-signature', params['x-amz-signature']);
+    formData.append('file', file);
+    // console.log(formData);
+    return axios.post(
+        'https://s3.ap-northeast-1.amazonaws.com/travel3.storage',
+        formData
+    );
+};
