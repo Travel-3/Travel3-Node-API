@@ -13,6 +13,8 @@
         - [Get Event By Id](#get-event-by-id)
         - [Create Event](#create-event)
     - [Direct Upload Image](#direct-upload-image)
+    - [Nft](#nft)
+      - [List NFT](#list-nft)
 
 ## Installation
 
@@ -134,4 +136,14 @@ const metadata = await Travel3.Image.getMedia({
 
 ```javascript
 await Travel3.directS3Upload(file, metadata.fields);
+```
+
+### Nft
+
+#### List NFT
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const nfts = await Travel3.Nft.list();
 ```

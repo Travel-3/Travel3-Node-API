@@ -1,4 +1,4 @@
-import { Auth, Event, Admin, EventType, Image } from './resources';
+import { Auth, Event, Admin, EventType, Image, Nft } from './resources';
 import { Context } from './Context';
 import { directS3Upload } from './S3DirectUpload';
 
@@ -9,6 +9,7 @@ export const Travel3 = {
     Admin,
     EventType,
     Image,
+    Nft,
     directS3Upload
 };
 
