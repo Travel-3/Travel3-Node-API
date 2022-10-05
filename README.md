@@ -4,7 +4,9 @@
   - [Installation](#installation)
   - [Getting Started](#getting-started)
     - [Authentication](#authentication)
-      - [Login](#login)
+      - [Sign Up On Web](#sign-up-on-web)
+        - [First Step](#first-step)
+        - [Second Step](#second-step)
     - [Event Type](#event-type)
       - [List Event Types](#list-event-types)
     - [Admin](#admin)
@@ -36,6 +38,96 @@ Travel3.Context.initialize({
 ```
 
 ### Authentication
+
+#### Sign Up On Web
+
+##### First Step
+
+Send the pre-register request to the server. This request will return a user id. You need to save this id for the next step.
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+await Travel3.Auth.preRegister({
+    email: '1997roylee@gmail.com',
+    client_id: process.env.CLIENT_ID,
+    identifier_type: 'email'
+});
+```
+
+- Example Response
+
+```json
+{
+    "status": "ok",
+    "data": {
+        "user": {
+            "id": "d5a84e54-9921-434b-9b1e-1c3b4a4754e7",
+            "email": "1997roylee@gmail.com",
+            "first_name": "",
+            "last_name": "",
+            "phone_number": null,
+            "country_code": null,
+            "created_at": "2022-10-04T14:20:07.819Z",
+            "updated_at": "2022-10-04T14:20:07.819Z"
+        }
+    }
+}
+```
+
+##### Second Step
+
+Send the register request to the server. This request will return a access token. You need to save this access token for the next step.
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+await Travel3.Auth.register({
+    user_id: 'd5a84e54-9921-434b-9b1e-1c3b4a4754e7',
+    password: '12345678',
+    password_confirmation: '12345678',
+    nickname: 'roylee',
+    client_id: process.env.CLIENT_ID,
+});
+```
+
+- Example Response
+
+```json
+{
+    "status": "ok",
+    "data": {
+        "user": {
+            "id": "d5a84e54-9921-434b-9b1e-1c3b4a4754e7",
+            "email": "1997roylee@gmail.com",
+            "nickname": "12345s6asd",
+            "first_name": "",
+            "last_name": ""
+        },
+        "access_token": {
+            "access_token": "HNtA_G3VXfTlquk-ic9xio4904zQlqB2SuzLsxbgsd4",
+            "token_type": "bearer",
+            "expires_in": 172800,
+            "refresh_token": "V1zu59f2aDzYNOcJOZg3noHHM-YuHRbsUd4HIE0M1Ug",
+            "created_at": "2022-10-04T14:20:52.532Z"
+        }
+    }
+}
+```
+
+- 3. Third you need to send the wallet uuid generate request to the server. This request will return a client_secret, nonce and token. You need to save this uuid for the next step.
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+await Travel3.Wallet.generateUUID();
+```
+<!-- 
+- 4. Final you need to send the wallet create request to the server. This request will return a wallet address.
+
+```javascript
+
+``` -->
 
 #### Login
 
