@@ -13,6 +13,8 @@
       - [Get Profile](#get-profile)
     - [Nft](#nft)
       - [List NFT](#list-nft)
+    - [Nft Asset Item](#nft-asset-item)
+      - [Show NFT Asset Item](#show-nft-asset-item)
     - [Admin](#admin)
       - [Event](#event)
         - [Get All Events](#get-all-events)
@@ -176,6 +178,18 @@ const nfts = await Travel3.Account.getMe();
 import Travel3 from '@travel3/travel3-api';
 
 const nfts = await Travel3.Nft.list();
+```
+
+### Nft Asset Item
+
+#### Show NFT Asset Item
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const nftAssetItem = await Travel3.NftAssetItem.show({
+    nft_asset_item_id: '1'
+});
 ```
 
 ### Admin

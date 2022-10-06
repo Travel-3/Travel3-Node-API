@@ -6,5 +6,6 @@ import { Image } from './Image';
 import { Nft } from './Nft';
 import { Wallet } from './Wallet';
 import { Account } from './Account';
+import { NftAssetItem } from './NftAssetItem';
 
-export { Auth, Account, Event, Admin, EventType, Image, Nft, Wallet };
+export { NftAssetItem, Auth, Account, Event, Admin, EventType, Image, Nft, Wallet };

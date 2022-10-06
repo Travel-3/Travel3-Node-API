@@ -6,7 +6,8 @@ import {
     Image,
     Nft,
     Wallet,
-    Account
+    Account,
+    NftAssetItem
 } from './resources';
 import { Context } from './Context';
 import { directS3Upload } from './S3DirectUpload';
@@ -21,6 +22,7 @@ export const Travel3 = {
     Nft,
     Wallet,
     Account,
+    NftAssetItem,
     directS3Upload
 };
 
