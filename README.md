@@ -9,14 +9,16 @@
         - [Second Step](#second-step)
     - [Event Type](#event-type)
       - [List Event Types](#list-event-types)
+    - [Account](#account)
+      - [Get Profile](#get-profile)
+    - [Nft](#nft)
+      - [List NFT](#list-nft)
     - [Admin](#admin)
       - [Event](#event)
         - [Get All Events](#get-all-events)
         - [Get Event By Id](#get-event-by-id)
         - [Create Event](#create-event)
     - [Direct Upload Image](#direct-upload-image)
-    - [Nft](#nft)
-      - [List NFT](#list-nft)
 
 ## Installation
 
@@ -156,6 +158,26 @@ import Travel3 from '@travel3/travel3-api';
 const eventTypes = await Travel3.EventType.list();
 ```
 
+### Account
+
+#### Get Profile
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const nfts = await Travel3.Account.getMe();
+```
+
+### Nft
+
+#### List NFT
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const nfts = await Travel3.Nft.list();
+```
+
 ### Admin
 
 #### Event
@@ -228,14 +250,4 @@ const metadata = await Travel3.Image.getMedia({
 
 ```javascript
 await Travel3.directS3Upload(file, metadata.fields);
-```
-
-### Nft
-
-#### List NFT
-
-```javascript
-import Travel3 from '@travel3/travel3-api';
-
-const nfts = await Travel3.Nft.list();
 ```

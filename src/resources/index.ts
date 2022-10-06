@@ -5,5 +5,6 @@ import { EventType } from './EventType';
 import { Image } from './Image';
 import { Nft } from './Nft';
 import { Wallet } from './Wallet';
+import { Account } from './Account';
 
-export { Auth, Event, Admin, EventType, Image, Nft, Wallet };
+export { Auth, Account, Event, Admin, EventType, Image, Nft, Wallet };
