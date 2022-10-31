@@ -21,6 +21,12 @@
         - [Get Event By Id](#get-event-by-id)
         - [Create Event](#create-event)
     - [Direct Upload Image](#direct-upload-image)
+    - [Nft](#nft-1)
+      - [List NFT](#list-nft-1)
+    - [Balance](#balance)
+      - [Get Balance](#get-balance)
+    - [Event](#event-1)
+      - [Attend](#attend)
 
 ## Installation
 
@@ -265,3 +271,34 @@ const metadata = await Travel3.Image.getMedia({
 ```javascript
 await Travel3.directS3Upload(file, metadata.fields);
 ```
+
+### Nft
+
+#### List NFT
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const nfts = await Travel3.Nft.list();
+```
+
+### Balance
+
+#### Get Balance
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const balance = await Travel3.Balance.show();
+```
+
+### Event
+
+#### Attend
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const attend = await Travel3.Attend.create();
+```
+
