@@ -7,7 +7,10 @@ import {
     Nft,
     Wallet,
     Account,
-    NftAssetItem
+    NftAssetItem,
+    Balance,
+    Attend,
+    MyStery
 } from './resources';
 import { Context } from './Context';
 import { directS3Upload } from './S3DirectUpload';
@@ -23,7 +26,10 @@ export const Travel3 = {
     Wallet,
     Account,
     NftAssetItem,
-    directS3Upload
+    directS3Upload,
+    Balance,
+    Attend,
+    MyStery
 };
 
 export default Travel3;
