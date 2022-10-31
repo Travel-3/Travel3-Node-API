@@ -25,8 +25,9 @@
       - [List NFT](#list-nft-1)
     - [Balance](#balance)
       - [Get Balance](#get-balance)
-    - [Event](#event-1)
-      - [Attend](#attend)
+    - [Daily Check-in](#daily-check-in)
+      - [1. Get Mystery List](#1-get-mystery-list)
+      - [2. Attend](#2-attend)
 
 ## Installation
 
@@ -292,13 +293,23 @@ import Travel3 from '@travel3/travel3-api';
 const balance = await Travel3.Balance.show();
 ```
 
-### Event
+### Daily Check-in
 
-#### Attend
+#### 1. Get Mystery List
 
 ```javascript
 import Travel3 from '@travel3/travel3-api';
 
-const attend = await Travel3.Attend.create();
+const mysteries = await Travel3.MyStery.list();
+```
+
+#### 2. Attend
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const attend = await Travel3.Attend.create({
+    loyalty_reward_id: "3a0e038b-eb07-43df-8bfb-7c9e86bb9515"
+});
 ```
 

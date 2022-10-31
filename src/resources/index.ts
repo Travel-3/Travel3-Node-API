@@ -9,6 +9,7 @@ import { Account } from './Account';
 import { NftAssetItem } from './NftAssetItem';
 import { Balance } from './Balance';
 import { Attend } from './Attend';
+import { MyStery } from './Mystery';
 
 export {
     NftAssetItem,
@@ -21,5 +22,6 @@ export {
     Image,
     Nft,
     Wallet,
-    Attend
+    Attend,
+    MyStery
 };
