@@ -1,5 +1,5 @@
 import Admin from './Admin';
-import Event from './Event';
+import { Event } from './Event';
 import { Auth } from './Auth';
 import { EventType } from './EventType';
 import { Image } from './Image';
@@ -8,6 +8,7 @@ import { Wallet } from './Wallet';
 import { Account } from './Account';
 import { NftAssetItem } from './NftAssetItem';
 import { Balance } from './Balance';
+import { Attend } from './Attend';
 
 export {
     NftAssetItem,
@@ -19,5 +20,6 @@ export {
     EventType,
     Image,
     Nft,
-    Wallet
+    Wallet,
+    Attend
 };
