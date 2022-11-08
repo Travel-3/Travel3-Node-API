@@ -313,3 +313,20 @@ const attend = await Travel3.Attend.create({
 });
 ```
 
+### Product
+
+#### 1. List Product
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const productList = await Travel3.Product.list();
+```
+
+#### 2. Show Product
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const product = await Travel3.Product.show({
+    productId: 7987297517852
+});
+```
