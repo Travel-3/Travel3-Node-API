@@ -28,6 +28,9 @@
     - [Daily Check-in](#daily-check-in)
       - [1. Get Mystery List](#1-get-mystery-list)
       - [2. Attend](#2-attend)
+    - [Product](#product)
+      - [1. List Product](#1-list-product)
+      - [2. Show Product](#2-show-product)
 
 ## Installation
 
@@ -217,7 +220,7 @@ const events = await Travel3.Admin.Event.list();
 import Travel3 from '@travel3/travel3-api';
 
 const event = await Travel3.Admin.Event.show({
-    eventId: 'cdf58f57-618c-41e3-9cd2-21d4c3691002'
+    event_id: 'cdf58f57-618c-41e3-9cd2-21d4c3691002'
 });
 ```
 

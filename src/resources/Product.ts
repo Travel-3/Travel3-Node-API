@@ -8,6 +8,6 @@ export const Product = ApiResource.extend({
     }),
     show: ApiResource.method({
         method: 'GET',
-        path: '/{productId}'
+        path: '/{product_id}'
     })
 });

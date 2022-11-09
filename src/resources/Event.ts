@@ -12,10 +12,10 @@ export const Event = ApiResource.extend({
     }),
     show: ApiResource.method({
         method: 'GET',
-        path: '/{eventId}'
+        path: '/{event_id}'
     }),
     update: ApiResource.method({
         method: 'PATCH',
-        path: '/{eventId}'
+        path: '/{event_id}'
     })
 });
