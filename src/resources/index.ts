@@ -12,3 +12,4 @@ export * from './Attend';
 export * from './Mystery';
 export * from './NftAssetItem';
 export * from './Token';
+export * from './Product';
