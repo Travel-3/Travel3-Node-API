@@ -12,6 +12,7 @@ export interface Params {
 
 export const directS3Upload = (file: Blob, params: Params) => {
     const formData = new FormData();
+    formData.append('acl', 'public-read');
     formData.append('key', params.key);
     formData.append('Content-Type', params['Content-Type']);
     formData.append('policy', params.policy);
