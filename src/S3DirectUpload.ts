@@ -21,9 +21,13 @@ export const directS3Upload = (file: Blob, params: Params) => {
     formData.append('x-amz-date', params['x-amz-date']);
     formData.append('x-amz-signature', params['x-amz-signature']);
     formData.append('file', file);
-    // console.log(formData);
     return axios.post(
         'https://s3.ap-northeast-1.amazonaws.com/travel3.storage',
-        formData
+        formData,
+        {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }
     );
 };
