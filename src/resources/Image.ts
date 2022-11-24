@@ -5,9 +5,5 @@ export const Image = ApiResource.extend({
     getMedia: ApiResource.method({
         method: 'GET',
         path: ''
-        // params: {
-        //     filename: '',
-        //     type: ''
-        // }
     })
 });
