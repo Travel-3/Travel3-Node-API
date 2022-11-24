@@ -12,7 +12,8 @@ import {
     Attend,
     MyStery,
     Token,
-    Product
+    Product,
+    CheckIn
 } from './resources';
 import { Context } from './Context';
 import { directS3Upload } from './S3DirectUpload';
@@ -33,7 +34,8 @@ export const Travel3 = {
     Attend,
     MyStery,
     Token,
-    Product
+    Product,
+    CheckIn
 };
 
 export default Travel3;
