@@ -1,7 +1,7 @@
 import { ApiResource } from '../../ApiResource';
 
 export const Event = ApiResource.extend({
-    path: '/api/v1/organizations/events.json',
+    path: '/api/v1/organizations/events',
     create: ApiResource.method({
         method: 'POST',
         path: ''
