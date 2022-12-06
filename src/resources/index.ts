@@ -1,5 +1,6 @@
 import Admin from './Admin';
-export { Admin };
+import Organization from './Organization';
+export { Admin, Organization };
 export * from './Auth';
 export * from './Account';
 export * from './Event';
