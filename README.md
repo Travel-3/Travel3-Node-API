@@ -3,10 +3,12 @@
 - [Travel3-Node-API](#travel3-node-api)
   - [Installation](#installation)
   - [Getting Started](#getting-started)
+  - [Resources](#resources)
     - [Authentication](#authentication)
       - [Sign Up On Web](#sign-up-on-web)
         - [First Step](#first-step)
         - [Second Step](#second-step)
+      - [Login](#login)
     - [Event Type](#event-type)
       - [List Event Types](#list-event-types)
     - [Account](#account)
@@ -31,6 +33,12 @@
     - [Product](#product)
       - [1. List Product](#1-list-product)
       - [2. Show Product](#2-show-product)
+    - [Organization](#organization)
+      - [Event](#event-1)
+        - [Get All Events](#get-all-events-1)
+        - [Get Event By Id](#get-event-by-id-1)
+        - [Create Event](#create-event-1)
+        - [Update Event By Event ID](#update-event-by-event-id)
 
 ## Installation
 
@@ -50,6 +58,8 @@ Travel3.Context.initialize({
     }
 });
 ```
+
+## Resources
 
 ### Authentication
 
@@ -332,4 +342,93 @@ import Travel3 from '@travel3/travel3-api';
 const product = await Travel3.Product.show({
     productId: 7987297517852
 });
+```
+
+### Organization
+
+#### Event
+
+##### Get All Events
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const events = await Travel3.Organization.Event.list();
+```
+
+##### Get Event By Id
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const event = await Travel3.Organization.Event.show({
+    event_id: 'cdf58f57-618c-41e3-9cd2-21d4c3691002'
+});
+```
+
+##### Create Event
+
+You have to retrieve event type id by using `Travel3.EventType.list()` before you create an event.
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const event = await Travel3.Organization.Event.create({
+    event_type_id: '7bbec334-db09-4d04-acea-09df4a7b0963',
+    nft_collection_id: '2c196aa2-1939-4200-95ef-ffdae46d981d',
+    name: '(Sample) MGM Cotai Starbucks Coffee Workshop',
+    timezone: 'Asia/Hong_Kong',
+    slug: 'mgm-cotai-starbucks-coffee-workshop',
+    started_at: '2022-08-01 04:44:17',
+    scheduled_to_end_at: '2022-09-30 04:44:17',
+    description: 'Hello world',
+    language: 'Chinese',
+    venue_attributes: {
+        name: 'MGM Cotai',
+        address: '4HW9+78V, Av. da Nave Desportiva, Macao',
+        latitude: 22.145734,
+        longitude: 113.568012,
+        city: 'Macau SAR',
+        state: 'Macau SAR',
+        country: 'Macau SAR'
+    },
+    images_attributes: [
+        {
+            src: 'https://cdn.pixabay.com/photo/2016/03/26/23/23/starbucks-1281880__480.jpg'
+        }
+    ]
+});
+```
+
+##### Update Event By Event ID
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+Travel3.Organization.Event.update({
+    event_id: 'cdf58f57-618c-41e3-9cd2-21d4c3691002',
+    event_type_id: '7bbec334-db09-4d04-acea-09df4a7b0963',
+    nft_collection_id: '2c196aa2-1939-4200-95ef-ffdae46d981d',
+    name: '(Sample) MGM Cotai Starbucks Coffee Workshop',
+    timezone: 'Asia/Hong_Kong',
+    slug: 'mgm-cotai-starbucks-coffee-workshop',
+    started_at: '2022-08-01 04:44:17',
+    scheduled_to_end_at: '2022-09-30 04:44:17',
+    description: 'Hello world',
+    language: 'Chinese',
+    venue_attributes: {
+        name: 'MGM Cotai',
+        address: '4HW9+78V, Av. da Nave Desportiva, Macao',
+        latitude: 22.145734,
+        longitude: 113.568012,
+        city: 'Macau SAR',
+        state: 'Macau SAR',
+        country: 'Macau SAR'
+    },
+    images_attributes: [
+        {
+            src: 'https://cdn.pixabay.com/photo/2016/03/26/23/23/starbucks-1281880__480.jpg'
+        }
+    ]
+})
 ```
