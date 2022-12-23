@@ -17,5 +17,9 @@ export const Event = ApiResource.extend({
     update: ApiResource.method({
         method: 'PATCH',
         path: '/{event_id}'
+    }),
+    approve: ApiResource.method({
+        method: 'POST',
+        path: '/{event_id}/approve'
     })
 });
