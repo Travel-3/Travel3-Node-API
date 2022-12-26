@@ -170,6 +170,18 @@ await Travel3.Auth.login({
 });
 ```
 
+### Event
+
+#### Participate Event
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+await Travel3.Event.participate({
+    event_id: '1'
+});
+```
+
 ### Event Type
 
 #### List Event Types
