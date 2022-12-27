@@ -9,11 +9,11 @@
   ],
   "scripts": {
     "build": "npm run clean && tsc",
-    "prepare": "npm run build",
-    "lint": "eslint '**/*.{ts,tsx}' --max-warnings 0",
+    "prepare": "husky install",
+    "lint": "eslint 'src/**/*.{ts,tsx}' --max-warnings 0",
+    "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'",
     "clean": "rimraf ./dist tsconfig.tsbuildinfo",
     "format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "run-example": "node ./examples/index.js",
     "deploy": "npm publish --access public",
     "deploy:beta": "npm run deploy --tag beta"
   },
@@ -26,13 +26,19 @@
   "license": "ISC",
   "devDependencies": {
     "@types/extend": "^3.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
     "@typescript-eslint/parser": "^5.36.2",
-    "eslint": "^8.23.0",
+    "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^24.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.6.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.31.11",
+    "husky": "^8.0.2",
     "prettier": "^2.7.1",
-    "typescript": "^4.8.2"
+    "typescript": "^4.8.3"
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
