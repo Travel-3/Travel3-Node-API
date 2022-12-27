@@ -3,7 +3,7 @@ import { AxiosResponse, Method } from 'axios';
 
 import { ApiResource } from './ApiResource';
 
-function findCallback(...args: any[]): (response: any) => void | undefined {
+function findCallback(...args: any[]): (response: any) => any | undefined {
     const callback =
         typeof args[arguments.length - 1] === 'function'
             ? args.pop()
@@ -27,7 +27,7 @@ function findAccessToken(...args: any[]): string | undefined {
 
 function extractUrlParams(path: string): string[] {
     const params = path.match(/\{\w+\}/g);
-    if (!params) {
+    if (params === null) {
         return [];
     }
 
@@ -45,11 +45,17 @@ function getRequestOptions(
     urlParams: string[] = [],
     args: any,
     options: OverrideOptions = {}
-) {
-    const _method = method.toLowerCase() || 'get';
-    const headers = options.headers || {};
-    let data = options.data || {};
-    let params = options.params || {};
+): {
+    method: Method;
+    data: any;
+    params: any;
+    urlData: any;
+    headers: any;
+} {
+    const _method = method.toLowerCase() ?? 'get';
+    const headers = options.headers ?? {};
+    let data = options.data ?? {};
+    let params = options.params ?? {};
 
     const urlData = urlParams.reduce((urldata: any, _params: string) => {
         if (
@@ -58,6 +64,7 @@ function getRequestOptions(
                 typeof args[_params] === 'number')
         ) {
             urldata[_params] = args[_params] as string;
+            // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
             delete args[_params];
         }
         return urldata;
@@ -86,7 +93,7 @@ function makeRequest(
     spec: ApiMethodSpec,
     accessToken: string | undefined
 ) {
-    return () => {
+    return async () => {
         const { options, method } = spec;
         const requestOptions = getRequestOptions(
             method,
@@ -102,7 +109,7 @@ function makeRequest(
             path
         );
 
-        return _this.request(
+        return await _this.request(
             requestOptions.method,
             newPath,
             requestOptions.data,
@@ -115,24 +122,10 @@ function makeRequest(
 
 async function executeRequest(
     request: () => Promise<AxiosResponse<any, any>>,
-    callback: (response: any) => void | undefined
-) {
+    callback: (response: any) => any | undefined
+): Promise<any> {
     const response = await request();
-    return callback ? callback(response.data) : response.data;
-    // try {
-    //     const response = await request()
-
-    //     return {
-    //         success: true,
-    //         data: callback ? callback(response.data) : response.data,
-    //     }
-    // } catch (error: any) {
-    //     console.warn(error, error.response)
-    //     return {
-    //         success: false,
-    //         error: error.response,
-    //     }
-    // }
+    return callback !== undefined ? callback(response.data) : response.data;
 }
 
 export interface ApiMethodSpec {
@@ -153,7 +146,7 @@ export const ApiMethod = (
         const accessToken = findAccessToken(...args);
         // const accessToken = Object.hasOwnProperty.call(args[0], 'accessToken')
         const newPath = this.createResourcePathWithSymbols(this.path, path);
-        const urlParams = extractUrlParams(fullPath || newPath);
+        const urlParams = extractUrlParams(fullPath ?? newPath);
         // console.log('urlParams', urlParams)
         const response = await executeRequest(
             makeRequest(this, newPath, urlParams, args, spec, accessToken),

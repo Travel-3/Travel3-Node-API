@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
     // AxiosInstance,
     AxiosResponse,
@@ -17,11 +16,6 @@ export class ApiResource {
     [x: string]: any;
     // client: ApiClient;
     // instance: AxiosInstance;
-    constructor() {
-        // this.client = new ApiClient();
-        // this.instance = this.client.instance;
-    }
-
     createResourcePathWithSymbols = (
         basePath: string,
         pathWithSymbols: string
@@ -48,22 +42,26 @@ export class ApiResource {
         if (Object.values(params).length > 0) {
             config.params = params;
         }
-        if (accessToken || Object.values(headers).length > 0) {
+        if (accessToken !== undefined || Object.values(headers).length > 0) {
             config.headers = this._makeHeaders(accessToken, headers);
         }
 
-        return client.instance.request(config);
+        return await client.instance.request(config);
     };
 
-    public static extend(resource: any) {
+    public static extend(resource: any): any {
         return extend({}, new ApiResource(), resource);
     }
 
     public static method = ApiMethod.ApiMethod;
 
-    private _makeHeaders = (accessToken: string | undefined, headers?: any) => {
+    private readonly _makeHeaders = (
+        accessToken: string | undefined,
+        headers?: any
+    ): any => {
         const defaultHeaders = {
-            Authorization: accessToken ? `Bearer ${accessToken}` : '',
+            Authorization:
+                accessToken !== undefined ? `Bearer ${accessToken}` : '',
             Accept: 'application/json'
         };
         return {

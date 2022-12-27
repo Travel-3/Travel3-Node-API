@@ -18,7 +18,7 @@ export class ApiClient {
         return `${Context.API_BASE_URL}`;
     };
 
-    private createAxiosInstance = () => {
+    private readonly createAxiosInstance = (): AxiosInstance => {
         const baseURL = this.buildApiEndpoint();
         const config: AxiosRequestConfig = {
             baseURL,
@@ -31,12 +31,9 @@ export class ApiClient {
             (response) => {
                 return response;
             },
-            (error) => {
-                // if (error.response.status === 401) {
-                //     // logout()
-                // }
-                Context.errorCallback && Context.errorCallback(error.response);
-                return Promise.reject(error.response);
+            async (error) => {
+                Context.errorCallback?.(error.response);
+                return await Promise.reject(error.response);
             }
         );
 

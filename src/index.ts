@@ -14,7 +14,8 @@ import {
     Token,
     Product,
     CheckIn,
-    Organization
+    Organization,
+    EventCategory
 } from './resources';
 import { Context } from './Context';
 import { directS3Upload } from './S3DirectUpload';
@@ -37,7 +38,8 @@ export const Travel3 = {
     Token,
     Product,
     CheckIn,
-    Organization
+    Organization,
+    EventCategory
 };
 
 export default Travel3;
