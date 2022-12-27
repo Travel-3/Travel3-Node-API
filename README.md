@@ -1,44 +1,52 @@
 # Travel3-Node-API
 
-- [Travel3-Node-API](#travel3-node-api)
-  - [Installation](#installation)
-  - [Getting Started](#getting-started)
-  - [Resources](#resources)
-    - [Authentication](#authentication)
-      - [Sign Up On Web](#sign-up-on-web)
-        - [First Step](#first-step)
-        - [Second Step](#second-step)
-      - [Login](#login)
-    - [Event Type](#event-type)
-      - [List Event Types](#list-event-types)
-    - [Account](#account)
-      - [Get Profile](#get-profile)
-    - [Nft](#nft)
-      - [List NFT](#list-nft)
-    - [Nft Asset Item](#nft-asset-item)
-      - [Show NFT Asset Item](#show-nft-asset-item)
-    - [Admin](#admin)
-      - [Event](#event)
-        - [Get All Events](#get-all-events)
-        - [Get Event By Id](#get-event-by-id)
-        - [Create Event](#create-event)
-    - [Direct Upload Image](#direct-upload-image)
-    - [Nft](#nft-1)
-      - [List NFT](#list-nft-1)
-    - [Balance](#balance)
-      - [Get Balance](#get-balance)
-    - [Daily Check-in](#daily-check-in)
-      - [1. Get Mystery List](#1-get-mystery-list)
-      - [2. Attend](#2-attend)
-    - [Product](#product)
-      - [1. List Product](#1-list-product)
-      - [2. Show Product](#2-show-product)
-    - [Organization](#organization)
-      - [Event](#event-1)
-        - [Get All Events](#get-all-events-1)
-        - [Get Event By Id](#get-event-by-id-1)
-        - [Create Event](#create-event-1)
-        - [Update Event By Event ID](#update-event-by-event-id)
+-   [Travel3-Node-API](#travel3-node-api)
+    -   [Installation](#installation)
+    -   [Getting Started](#getting-started)
+    -   [Resources](#resources)
+        -   [Authentication](#authentication)
+            -   [Sign Up On Web](#sign-up-on-web)
+                -   [First Step](#first-step)
+                -   [Second Step](#second-step)
+            -   [Login](#login)
+        -   [Event](#event)
+            -   [List Events](#list-events)
+            <!-- -   [Show Event](#show-event)
+            -   [Create Event](#create-event)
+            -   [Update Event](#update-event)
+            -   [Delete Event](#delete-event) -->
+        -   [Event Category](#event-category)
+            -   [List Event Categories](#list-event-categories)
+        -   [Event Type](#event-type)
+            -   [List Event Types](#list-event-types)
+        -   [Account](#account)
+            -   [Get Profile](#get-profile)
+        -   [Nft](#nft)
+            -   [List NFT](#list-nft)
+        -   [Nft Asset Item](#nft-asset-item)
+            -   [Show NFT Asset Item](#show-nft-asset-item)
+        -   [Admin](#admin)
+            -   [Event](#event)
+                -   [Get All Events](#get-all-events)
+                -   [Get Event By Id](#get-event-by-id)
+                -   [Create Event](#create-event)
+        -   [Direct Upload Image](#direct-upload-image)
+        -   [Nft](#nft-1)
+            -   [List NFT](#list-nft-1)
+        -   [Balance](#balance)
+            -   [Get Balance](#get-balance)
+        -   [Daily Check-in](#daily-check-in)
+            -   [1. Get Mystery List](#1-get-mystery-list)
+            -   [2. Attend](#2-attend)
+        -   [Product](#product)
+            -   [1. List Product](#1-list-product)
+            -   [2. Show Product](#2-show-product)
+        -   [Organization](#organization)
+            -   [Event](#event-1)
+                -   [Get All Events](#get-all-events-1)
+                -   [Get Event By Id](#get-event-by-id-1)
+                -   [Create Event](#create-event-1)
+                -   [Update Event By Event ID](#update-event-by-event-id)
 
 ## Installation
 
@@ -79,7 +87,7 @@ await Travel3.Auth.preRegister({
 });
 ```
 
-- Example Response
+-   Example Response
 
 ```json
 {
@@ -111,11 +119,11 @@ await Travel3.Auth.register({
     password: '12345678',
     password_confirmation: '12345678',
     nickname: 'roylee',
-    client_id: process.env.CLIENT_ID,
+    client_id: process.env.CLIENT_ID
 });
 ```
 
-- Example Response
+-   Example Response
 
 ```json
 {
@@ -139,14 +147,15 @@ await Travel3.Auth.register({
 }
 ```
 
-- 3. Third you need to send the wallet uuid generate request to the server. This request will return a client_secret, nonce and token. You need to save this uuid for the next step.
+-   3. Third you need to send the wallet uuid generate request to the server. This request will return a client_secret, nonce and token. You need to save this uuid for the next step.
 
 ```javascript
 import Travel3 from '@travel3/travel3-api';
 
 await Travel3.Wallet.generateUUID();
 ```
-<!-- 
+
+<!--
 - 4. Final you need to send the wallet create request to the server. This request will return a wallet address.
 
 ```javascript
@@ -180,6 +189,16 @@ import Travel3 from '@travel3/travel3-api';
 await Travel3.Event.participate({
     event_id: '1'
 });
+```
+
+### Event Category
+
+#### List Event Categories
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const eventTypes = await Travel3.EventCategory.list();
 ```
 
 ### Event Type
@@ -334,13 +353,14 @@ const mysteries = await Travel3.MyStery.list();
 import Travel3 from '@travel3/travel3-api';
 
 const attend = await Travel3.Attend.create({
-    loyalty_reward_id: "3a0e038b-eb07-43df-8bfb-7c9e86bb9515"
+    loyalty_reward_id: '3a0e038b-eb07-43df-8bfb-7c9e86bb9515'
 });
 ```
 
 ### Product
 
 #### 1. List Product
+
 ```javascript
 import Travel3 from '@travel3/travel3-api';
 
@@ -348,6 +368,7 @@ const productList = await Travel3.Product.list();
 ```
 
 #### 2. Show Product
+
 ```javascript
 import Travel3 from '@travel3/travel3-api';
 
@@ -442,5 +463,5 @@ Travel3.Organization.Event.update({
             src: 'https://cdn.pixabay.com/photo/2016/03/26/23/23/starbucks-1281880__480.jpg'
         }
     ]
-})
+});
 ```
