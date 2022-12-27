@@ -15,3 +15,4 @@ export * from './NftAssetItem';
 export * from './Token';
 export * from './Product';
 export * from './CheckIn';
+export * from './EventCategory';
