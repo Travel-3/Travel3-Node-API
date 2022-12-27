@@ -408,6 +408,7 @@ import Travel3 from '@travel3/travel3-api';
 
 const event = await Travel3.Organization.Event.create({
     event_type_id: '7bbec334-db09-4d04-acea-09df4a7b0963',
+    event_category_id: '7bbec334-db09-4d04-acea-09df4a7b0963',
     nft_collection_id: '2c196aa2-1939-4200-95ef-ffdae46d981d',
     name: '(Sample) MGM Cotai Starbucks Coffee Workshop',
     timezone: 'Asia/Hong_Kong',
