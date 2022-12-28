@@ -17,5 +17,9 @@ export const Event = ApiResource.extend({
     update: ApiResource.method({
         method: 'PATCH',
         path: '/{event_id}'
+    }),
+    listParticipants: ApiResource.method({
+        method: 'GET',
+        path: '/{event_id}/participants'
     })
 });

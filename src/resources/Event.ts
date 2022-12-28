@@ -21,5 +21,9 @@ export const Event = ApiResource.extend({
     participate: ApiResource.method({
         method: 'POST',
         path: '/{event_id}/participate'
+    }),
+    listGoing: ApiResource.method({
+        method: 'GET',
+        path: '/going'
     })
 });

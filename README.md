@@ -11,10 +11,7 @@
             -   [Login](#login)
         -   [Event](#event)
             -   [List Events](#list-events)
-            <!-- -   [Show Event](#show-event)
-            -   [Create Event](#create-event)
-            -   [Update Event](#update-event)
-            -   [Delete Event](#delete-event) -->
+            -   [List Going Events](#list-going-events)
         -   [Event Category](#event-category)
             -   [List Event Categories](#list-event-categories)
         -   [Event Type](#event-type)
@@ -47,6 +44,7 @@
                 -   [Get Event By Id](#get-event-by-id-1)
                 -   [Create Event](#create-event-1)
                 -   [Update Event By Event ID](#update-event-by-event-id)
+                -   [List Participants By Event ID](#list-participants-by-event-id)
 
 ## Installation
 
@@ -180,6 +178,16 @@ await Travel3.Auth.login({
 ```
 
 ### Event
+
+#### List Going Events
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const events = await Travel3.Event.listGoing({
+    page: 0
+});
+```
 
 #### Participate Event
 
@@ -464,5 +472,15 @@ Travel3.Organization.Event.update({
             src: 'https://cdn.pixabay.com/photo/2016/03/26/23/23/starbucks-1281880__480.jpg'
         }
     ]
+});
+```
+
+##### List Participants By Event ID
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const participants = await Travel3.Organization.Event.listParticipants({
+    event_id: 'cdf58f57-618c-41e3-9cd2-21d4c3691002'
 });
 ```
