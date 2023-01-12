@@ -1,50 +1,51 @@
 # Travel3-Node-API
 
--   [Travel3-Node-API](#travel3-node-api)
-    -   [Installation](#installation)
-    -   [Getting Started](#getting-started)
-    -   [Resources](#resources)
-        -   [Authentication](#authentication)
-            -   [Sign Up On Web](#sign-up-on-web)
-                -   [First Step](#first-step)
-                -   [Second Step](#second-step)
-            -   [Login](#login)
-        -   [Event](#event)
-            -   [List Events](#list-events)
-            -   [List Going Events](#list-going-events)
-        -   [Event Category](#event-category)
-            -   [List Event Categories](#list-event-categories)
-        -   [Event Type](#event-type)
-            -   [List Event Types](#list-event-types)
-        -   [Account](#account)
-            -   [Get Profile](#get-profile)
-        -   [Nft](#nft)
-            -   [List NFT](#list-nft)
-        -   [Nft Asset Item](#nft-asset-item)
-            -   [Show NFT Asset Item](#show-nft-asset-item)
-        -   [Admin](#admin)
-            -   [Event](#event)
-                -   [Get All Events](#get-all-events)
-                -   [Get Event By Id](#get-event-by-id)
-                -   [Create Event](#create-event)
-        -   [Direct Upload Image](#direct-upload-image)
-        -   [Nft](#nft-1)
-            -   [List NFT](#list-nft-1)
-        -   [Balance](#balance)
-            -   [Get Balance](#get-balance)
-        -   [Daily Check-in](#daily-check-in)
-            -   [1. Get Mystery List](#1-get-mystery-list)
-            -   [2. Attend](#2-attend)
-        -   [Product](#product)
-            -   [1. List Product](#1-list-product)
-            -   [2. Show Product](#2-show-product)
-        -   [Organization](#organization)
-            -   [Event](#event-1)
-                -   [Get All Events](#get-all-events-1)
-                -   [Get Event By Id](#get-event-by-id-1)
-                -   [Create Event](#create-event-1)
-                -   [Update Event By Event ID](#update-event-by-event-id)
-                -   [List Participants By Event ID](#list-participants-by-event-id)
+- [Travel3-Node-API](#travel3-node-api)
+  - [Installation](#installation)
+  - [Getting Started](#getting-started)
+  - [Resources](#resources)
+    - [Authentication](#authentication)
+      - [Sign Up On Web](#sign-up-on-web)
+        - [First Step](#first-step)
+        - [Second Step](#second-step)
+      - [Login](#login)
+    - [Event](#event)
+      - [List Going Events](#list-going-events)
+      - [Participate Event](#participate-event)
+    - [Event Category](#event-category)
+      - [List Event Categories](#list-event-categories)
+    - [Event Type](#event-type)
+      - [List Event Types](#list-event-types)
+    - [Account](#account)
+      - [Get Profile](#get-profile)
+    - [Nft](#nft)
+      - [List NFT](#list-nft)
+    - [Nft Asset Item](#nft-asset-item)
+      - [Show NFT Asset Item](#show-nft-asset-item)
+    - [Admin](#admin)
+      - [Event](#event-1)
+        - [Get All Events](#get-all-events)
+        - [Get Event By Id](#get-event-by-id)
+        - [Create Event](#create-event)
+    - [Direct Upload Image](#direct-upload-image)
+    - [Delete Image](#delete-image)
+    - [Nft](#nft-1)
+      - [List NFT](#list-nft-1)
+    - [Balance](#balance)
+      - [Get Balance](#get-balance)
+    - [Daily Check-in](#daily-check-in)
+      - [1. Get Mystery List](#1-get-mystery-list)
+      - [2. Attend](#2-attend)
+    - [Product](#product)
+      - [1. List Product](#1-list-product)
+      - [2. Show Product](#2-show-product)
+    - [Organization](#organization)
+      - [Event](#event-2)
+        - [Get All Events](#get-all-events-1)
+        - [Get Event By Id](#get-event-by-id-1)
+        - [Create Event](#create-event-1)
+        - [Update Event By Event ID](#update-event-by-event-id)
+        - [List Participants By Event ID](#list-participants-by-event-id)
 
 ## Installation
 
@@ -323,6 +324,16 @@ const metadata = await Travel3.Image.getMedia({
 
 ```javascript
 await Travel3.directS3Upload(file, metadata.fields);
+```
+
+### Delete Image
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+await Travel3.Image.delete({
+    media_id: "aaaa-bbbb-cccc-dddd"
+});
 ```
 
 ### Nft
