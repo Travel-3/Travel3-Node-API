@@ -25,5 +25,9 @@ export const Event = ApiResource.extend({
     listGoing: ApiResource.method({
         method: 'GET',
         path: '/going'
+    }),
+    listFeatured: ApiResource.method({
+        method: 'GET',
+        path: '/featured'
     })
 });

@@ -12,6 +12,7 @@
     - [Event](#event)
       - [List Going Events](#list-going-events)
       - [Participate Event](#participate-event)
+      - [List Featured Events](#list-featured-events)
     - [Event Category](#event-category)
       - [List Event Categories](#list-event-categories)
     - [Event Type](#event-type)
@@ -198,6 +199,14 @@ import Travel3 from '@travel3/travel3-api';
 await Travel3.Event.participate({
     event_id: '1'
 });
+```
+
+#### List Featured Events
+
+```javascript
+import Travel3 from '@travel3/travel3-api'
+
+const events = await Travel3.Event.listFeatured()
 ```
 
 ### Event Category
