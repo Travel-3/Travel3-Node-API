@@ -19,6 +19,8 @@
       - [List Event Types](#list-event-types)
     - [Account](#account)
       - [Get Profile](#get-profile)
+      - [Update Profile](#update-profile)
+      - [Update Password](#update-password)
     - [Nft](#nft)
       - [List NFT](#list-nft)
     - [Nft Asset Item](#nft-asset-item)
@@ -237,6 +239,30 @@ const eventTypes = await Travel3.EventType.list();
 import Travel3 from '@travel3/travel3-api';
 
 const nfts = await Travel3.Account.getMe();
+```
+
+#### Update Profile
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const nfts = await Travel3.Account.updateMe({
+    first_name: 'Roy',
+    last_name: 'Lee',
+    nickname: 'roylee',
+});
+```
+
+#### Update Password
+
+```javascript
+import Travel3 from '@travel3/travel3-api';
+
+const nfts = await Travel3.Account.updatePassword({
+    old_password: '',
+    password: '',
+    password_confirmation: '',
+});
 ```
 
 ### Nft
