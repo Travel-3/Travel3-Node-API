@@ -1,6 +1,6 @@
 {
   "name": "@travel3/travel3-api",
-  "version": "0.1.0",
+  "version": "0.1.01",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Travel-3/Travel3-Node-API.git"
+    "url": "https://github.com/Travel-3/Travel3-Node-API.git"
   },
   "keywords": [],
   "author": "monisnap-jason",
