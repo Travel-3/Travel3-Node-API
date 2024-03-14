@@ -42,6 +42,8 @@
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
-    "extend": "^3.0.2"
+    "extend": "^3.0.2",
+    "react-native-expo-wheel-picker": "^0.1.8",
+    "tea4dao": "^1.0.0"
   }
 }
